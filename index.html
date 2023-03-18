@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mod 4: Quiz Game</title>
 </head>
 <body>
+    <header>
+        <h1>Javascript Quiz</h1>
+        <p id="timerEl">Timer</p>
+    </header>
     <main>
-        
+        <div class="questions-container">
+            <form>
+                <fieldset>
+                    <legend class="question-number"></legend>
+                    <p class="quiz-question"></p>
+                    <input type="radio" id="quiz-answer" value="option1"><label for="quiz-answer"></label>
+                    <input type="radio" id="quiz-answer" value="option2"><label for="quiz-answer"></label>
+                    <input type="radio" id="quiz-answer" value="option3"><label for="quiz-answer"></label>
+                    <input type="radio" id="quiz-answer" value="option4"><label for="quiz-answer"></label>
+                </fieldset>
+            </form>
+        </div>
+        <div class="score">
+            <p class="score-record"></p>
+            <form class="score-input">
+                <label class="player-name">Your name</label><input type="name">
+                <button type="submit" class="submit-score">Submit</button>
+            </form>
+        </div>
+        <div class="score-board">
+            <h1 class="score-board-title">Score Board</h1>
+            <ul class="score-list">
+            </ul>
+        </div>
+        <button>Start Quiz</button>
     </main>
 </body>
 </html>
