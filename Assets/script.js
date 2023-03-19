@@ -29,12 +29,12 @@ var startButton = document.querySelector(".start-button");
 var timerElement = document.querySelector(".timer");
 var quizContainer = document.querySelector(".quiz-container");
 var quizForm = document.querySelector(".quiz-form");
-var questionNumber = document.querySelector(".quiz-number")
+var questionNumber = document.querySelector(".question-number")
 var resultContainer = document.querySelector(".result-container");
 var scoreInputForm = document.querySelector(".score-input");
-var questionElement = document.querySelector("#quiz-question");
+var questionElement = document.querySelector(".quiz-question");
 var answersElement = document.querySelectorAll(".quiz-answer");
-var answerInput = document.querySelector(".answer-input")
+var answerInput = document.querySelectorAll(".answer-input")
 var scoreBoardElement = document.querySelector(".score-board");
 var userNameInput = document.querySelector(".player-name");
 var scoreDisplay = document.querySelector(".score-display");
@@ -52,15 +52,15 @@ function startQuiz () {
   startButton.style.display = 'none';
   quizContainer.style.display = 'block';
   timerElement.style.display = 'inline';
-  countdown = 60;
+  countdown = 30;
   timerElement.textContent = `Time left: ${countdown} seconds`;
-  currentQuestion();
+  nextQuestion();
   startTimer();
-}
+};
 
 function startTimer() {
   timerInterval = setInterval(() => {
-    if (countdown === 0) {
+    if (countdown <= 0) {
       endQuiz();
     } else if (countdown > 1) {
       countdown--;
@@ -70,33 +70,55 @@ function startTimer() {
       timerElement.innerText = `Time left: ${countdown} second`;
     }
   }, 1000);
-}
+};
 
-function currentQuestion(){
+function nextQuestion() {
   questionNumber = questionIndex + 1;
   questionElement.textContent = questions[questionIndex].question;
   for(let i = 0; i < 4; i++){
-    answersElement[i].textCount = questions[questionIndex].options[i];
+    answersElement[i].textContent = questions[questionIndex].options[i];
     answerInput[i].value = questions[questionIndex].options[i];
     //value needs to change with options for each question
   }
-  
+};
+
+function checkAnswer(event){
+if(event.target.value === questions[questionIndex].answer) {
+  score += 10
+} else{
+  countdown -= 10
+  timerElement.innerText = `Time left: ${countdown} seconds`;
 }
-function checkAnswer(){}
+document.querySelector('input[type="radio"]:checked').checked = false;
+//found this line of code from the internet to clear the property checked
+questionIndex++;
+if(questionIndex < questions.length){
+  nextQuestion();
+} else {
+  endQuiz();
+}
+
+};
 function endQuiz() {
   clearInterval(timerInterval);
-  showResults();
-}
+  quizContainer.style.display = 'none';
+  resultContainer.style.display = 'block';
+  scoreDisplay.innerHTML = `Your score is ${score}!`;
+  userNameInput.style.display = 'block';
+  submitButton.style.display = 'block';
+
+  if(countdown <= 0) {
+    countdown = 0;
+    timerElement.textContent = `Time left: ${countdown} seconds`;
+  }
+};
 
 function submitScore() {
   // localStorage.setItem("", JSON.stringify());
   // var  = JSON.parse(localStorage.getItem(""));
 }
 
-function showResults() {
-  resultContainer.style.display = 'block';
-  scoreDisplay.innerHTML = `Your score is ${score}!`;
-  userNameInput.style.display = 'block';
-  submitButton.style.display = 'block';
-}
+
+  
+
 
