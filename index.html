@@ -9,14 +9,14 @@
 <body>
     <header>
         <h1>Javascript Quiz</h1>
-        <p id="timerEl">Timer</p>
+        <p class="timer">Timer</p>
     </header>
     <main>
-        <div class="questions-container">
+        <div class="quiz-container">
             <form>
                 <fieldset>
                     <legend class="question-number"></legend>
-                    <p class="quiz-question"></p>
+                    <p id="quiz-question"></p>
                     <input type="radio" id="quiz-answer" value="option1"><label for="quiz-answer"></label>
                     <input type="radio" id="quiz-answer" value="option2"><label for="quiz-answer"></label>
                     <input type="radio" id="quiz-answer" value="option3"><label for="quiz-answer"></label>
@@ -24,10 +24,10 @@
                 </fieldset>
             </form>
         </div>
-        <div class="score">
-            <p class="score-record"></p>
+        <div class="result-container">
             <form class="score-input">
-                <label class="player-name">Your name</label><input type="name">
+                <p class="score-display"></p>
+                <input type="text" class="player-name" placeholder="Enter Your Name">
                 <button type="submit" class="submit-score">Submit</button>
             </form>
         </div>
@@ -36,7 +36,8 @@
             <ul class="score-list">
             </ul>
         </div>
-        <button>Start Quiz</button>
+        <button class="start-button">Start Quiz</button>
     </main>
+    <script src="./Assets/script.js"></script>
 </body>
 </html>
