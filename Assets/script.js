@@ -35,10 +35,11 @@ var scoreInputForm = document.querySelector(".score-input");
 var questionElement = document.querySelector(".quiz-question");
 var answersElement = document.querySelectorAll(".quiz-answer");
 var answerInput = document.querySelectorAll(".answer-input")
-var scoreBoardElement = document.querySelector(".score-board");
-var userNameInput = document.querySelector(".player-name");
+var scoreBoardElement = document.querySelector("#score-board");
+var userNameInput = document.querySelector("#player-name");
 var scoreDisplay = document.querySelector(".score-display");
 var submitButton = document.querySelector(".submit-score");
+var scoreList = document.querySelector("#score-list");
 var score = 0;
 var questionIndex = 0;
 var countdown;
@@ -116,22 +117,41 @@ function endQuiz() {
 
 function submitScore(event) {
   event.preventDefault();
-  var recordedScore = JSON.parse(localStorage.getItem("recordedScore"))||[];
+  var recordedScore;
+  if(localStorage.getItem("recordedScore")) {
+    recordedScore = JSON.parse(localStorage.getItem("recordedScore"));
+  } else {
+    recordedScore = []
+  }
+  console.log(recordedScore);
   if(!userNameInput.value){
-   console.log("error")
+   userNameInput.setAttribute("placeholder", "Must name before you submit")
+   return;
   } else{
-    recordedScore.push = {
+    recordedScore.push({
     name: userNameInput.value,
     result: score
-    }
+    })
+    console.log(recordedScore);
+    localStorage.setItem("recordedScore", JSON.stringify(recordedScore))
   };
+
   scoreBoardElement.style.display = 'block';
+  for(let i = 0; i < recordedScore.length; i++) {
+    var createListItem = document.createElement("li")
+    var highScore = `${recordedScore[i].name} ${recordedScore[i].result}`
+    createListItem.textContent = highScore;
+    scoreList.appendChild(createListItem)
+  }
+resultContainer.style.display = 'none';
  /*Rest of the function should include creating a list element
  for score list then resetting questionIndex and score to 0 and changing start
  to restart button*/
 
-  
-  
+  questionIndex = 0;
+  score = 0;
+  startButton.style.display = 'block';
+  startButton.textContent = "Restart";
   // localStorage.setItem("", JSON.stringify());
   // var  = JSON.parse(localStorage.getItem(""));
 }

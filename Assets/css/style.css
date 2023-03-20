@@ -5,10 +5,7 @@
     font-family: din-round,sans-serif;
 }
 
-.timer, 
-.quiz-container, 
-.result-container, 
-.score-board {
+.hide {
     display: none;
 }
 

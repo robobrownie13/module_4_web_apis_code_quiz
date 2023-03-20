@@ -14,7 +14,7 @@
     </header>
     <div class="page-background">
     <main>
-        <div class="quiz-container">
+        <div class="quiz-container hide">
             <form class="quiz-form">
                 <fieldset>
                     <legend class="question-number"></legend>
@@ -30,16 +30,16 @@
                 </fieldset>
             </form>
         </div>
-        <div class="result-container">
+        <div class="result-container hide">
             <form class="score-input">
                 <p class="score-display"></p>
-                <input type="text" class="player-name" placeholder="Enter Your Name">
-                <button type="submit" class="submit-score">Submit</button>
+                <input type="text" id="player-name" placeholder="Enter Your Name">
+                <button type="submit" class="submit-score hide">Submit</button>
             </form>
         </div>
-        <div class="score-board">
-            <h1 class="score-board-title">Score Board</h1>
-            <ul class="score-list">
+        <div id="score-board" class="hide">
+            <h1 id="score-board-title">Score Board</h1>
+            <ul id="score-list">
             </ul>
         </div>
         <button class="start-button">Start Quiz</button>
