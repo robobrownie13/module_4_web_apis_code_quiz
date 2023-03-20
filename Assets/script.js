@@ -73,7 +73,7 @@ function startTimer() {
 };
 
 function nextQuestion() {
-  questionNumber = questionIndex + 1;
+  questionNumber.textContent = `Question #${questionIndex + 1}`;
   questionElement.textContent = questions[questionIndex].question;
   for(let i = 0; i < 4; i++){
     answersElement[i].textContent = questions[questionIndex].options[i];

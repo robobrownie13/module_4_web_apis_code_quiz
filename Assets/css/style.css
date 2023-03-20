@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    color:#cfc5e2;
+    font-family: din-round,sans-serif;
 }
 
 .timer, 
@@ -9,3 +11,108 @@
 .score-board {
     display: none;
 }
+
+body {
+    background-color: #090117;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.page-background {
+    width: 70vw;
+    height: 70vh;
+    background: linear-gradient(135deg, #330a7a 25%, transparent 25%) 50px 0,
+    linear-gradient(225deg, #330a7a 25%, transparent 25%) 50px 0,
+    linear-gradient(315deg, #330a7a 25%, transparent 25%),
+    linear-gradient(45deg, #330a7a 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-color: #4f1271;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    color:#cfc5e2;
+    background-color: #090117;
+    z-index: 3;
+}
+
+.timer{
+    padding-bottom: 2px;
+}
+
+main, 
+p,
+.quiz-form, 
+.score-input{
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+}
+
+button {
+  width: 150px;
+  appearance: button;
+  background-color: #0c0c0c;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+button:after {
+  background-clip: padding-box;
+  background-color: #330a7a;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+button:main,
+button:focus {
+  user-select: auto;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.button:disabled {
+  cursor: auto;
+}
+
+
