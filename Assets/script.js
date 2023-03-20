@@ -146,6 +146,8 @@ function submitScore(event) {
     result: score
     })
     console.log(recordedScore);
+    recordedScore.sort( (a,b) => b.result - a.result)
+    recordedScore = recordedScore.slice(0,15)
     localStorage.setItem("recordedScore", JSON.stringify(recordedScore))
   };
 
