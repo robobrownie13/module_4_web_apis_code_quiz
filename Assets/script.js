@@ -52,6 +52,9 @@ quizForm.addEventListener("change", checkAnswer);
 function startQuiz () {
   startButton.style.display = 'none';
   scoreBoardElement.style.display = 'none';
+  while(scoreList.firstChild) {
+    scoreList.removeChild(scoreList.firstChild);
+  }
   quizContainer.style.display = 'block';
   timerElement.style.display = 'inline';
   countdown = 30;
@@ -143,17 +146,13 @@ function submitScore(event) {
     createListItem.textContent = highScore;
     scoreList.appendChild(createListItem)
   }
-resultContainer.style.display = 'none';
- /*Rest of the function should include creating a list element
- for score list then resetting questionIndex and score to 0 and changing start
- to restart button*/
+  resultContainer.style.display = 'none';
+
 
   questionIndex = 0;
   score = 0;
   startButton.style.display = 'block';
   startButton.textContent = "Restart";
-  // localStorage.setItem("", JSON.stringify());
-  // var  = JSON.parse(localStorage.getItem(""));
 }
 
 
