@@ -51,6 +51,7 @@ quizForm.addEventListener("change", checkAnswer);
 
 function startQuiz () {
   startButton.style.display = 'none';
+  scoreDisplay.style.display  = 'none';
   scoreBoardElement.style.display = 'none';
   while(scoreList.firstChild) {
     scoreList.removeChild(scoreList.firstChild);
@@ -89,7 +90,7 @@ function nextQuestion() {
 
 function checkAnswer(event){
 if(event.target.value === questions[questionIndex].answer) {
-  score += 10
+  score += 100/questions.length
 } else{
   countdown -= 10
   timerElement.innerText = `Time left: ${countdown} seconds`;
@@ -107,14 +108,23 @@ if(questionIndex < questions.length){
 function endQuiz() {
   clearInterval(timerInterval);
   quizContainer.style.display = 'none';
-  resultContainer.style.display = 'block';
+  scoreDisplay.style.display = 'block';
   scoreDisplay.innerHTML = `Your score is ${score}!`;
-  userNameInput.style.display = 'block';
-  submitButton.style.display = 'block';
-
   if(countdown <= 0) {
     countdown = 0;
     timerElement.textContent = `Time left: ${countdown} seconds`;
+  }
+
+  if(score <= 0) {
+    resultContainer.style.display = 'none';
+    questionIndex = 0;
+    score = 0;
+    startButton.style.display = 'block';
+    startButton.textContent = "Restart";
+  } else {
+    resultContainer.style.display = 'block';
+    userNameInput.style.display = 'block';
+    submitButton.style.display = 'block';
   }
 };
 
@@ -139,10 +149,11 @@ function submitScore(event) {
     localStorage.setItem("recordedScore", JSON.stringify(recordedScore))
   };
 
+  scoreDisplay.style.display = 'none';
   scoreBoardElement.style.display = 'block';
   for(let i = 0; i < recordedScore.length; i++) {
     var createListItem = document.createElement("li")
-    var highScore = `${recordedScore[i].name} ${recordedScore[i].result}`
+    var highScore = `${recordedScore[i].name}   ${recordedScore[i].result}`
     createListItem.textContent = highScore;
     scoreList.appendChild(createListItem)
   }

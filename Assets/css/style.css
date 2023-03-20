@@ -17,8 +17,8 @@ body {
 }
 
 .page-background {
-    width: 70vw;
-    height: 70vh;
+    width: 80vw;
+    height: 80vh;
     background: linear-gradient(135deg, #330a7a 25%, transparent 25%) 50px 0,
     linear-gradient(225deg, #330a7a 25%, transparent 25%) 50px 0,
     linear-gradient(315deg, #330a7a 25%, transparent 25%),
@@ -52,6 +52,7 @@ p,
 display: flex;
 flex-direction: column;
 justify-content: center;
+align-items: space-around;
 text-align: center;
 }
 
@@ -119,3 +120,45 @@ button:hover:not(:disabled) {
   border-radius: 2px;
 }
 
+ul {
+  counter-reset: index;  
+  padding: 0;
+  height: 60vh;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  overflow: auto;
+}
+
+/* List element */
+li {
+  font-weight: 400;
+  counter-increment: index; 
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  box-sizing: border-box;
+}
+
+
+/* Element counter */
+li::before {
+  content: counters(index, ".", decimal-leading-zero);
+  font-size: 1.5rem;
+  text-align: right;
+  font-weight: bold;
+  min-width: 12px;
+  padding-right: 20px;
+  font-variant-numeric: tabular-nums;
+  align-self: flex-start;
+  background-image: linear-gradient(to bottom, rgb(107, 248, 220), rgb(237, 9, 191));
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* Element separation
+li + li {
+  border-top: 1px solid rgba(255,255,255,0.2);
+} */
