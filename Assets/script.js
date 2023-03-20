@@ -50,6 +50,7 @@ quizForm.addEventListener("change", checkAnswer);
 
 function startQuiz () {
   startButton.style.display = 'none';
+  scoreBoardElement.style.display = 'none';
   quizContainer.style.display = 'block';
   timerElement.style.display = 'inline';
   countdown = 30;
@@ -113,7 +114,24 @@ function endQuiz() {
   }
 };
 
-function submitScore() {
+function submitScore(event) {
+  event.preventDefault();
+  var recordedScore = JSON.parse(localStorage.getItem("recordedScore"))||[];
+  if(!userNameInput.value){
+   console.log("error")
+  } else{
+    recordedScore.push = {
+    name: userNameInput.value,
+    result: score
+    }
+  };
+  scoreBoardElement.style.display = 'block';
+ /*Rest of the function should include creating a list element
+ for score list then resetting questionIndex and score to 0 and changing start
+ to restart button*/
+
+  
+  
   // localStorage.setItem("", JSON.stringify());
   // var  = JSON.parse(localStorage.getItem(""));
 }
