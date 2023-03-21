@@ -1,6 +1,6 @@
 var questions = [
   {
-    question:"Which operator is used to assign a value to a variable",
+    question:"Which operator is used to assign a value to a variable?",
     answer:"=",
     options:["+","===","=","-"]
   },
