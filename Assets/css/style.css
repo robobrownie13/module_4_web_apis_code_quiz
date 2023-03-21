@@ -46,8 +46,7 @@ header {
 }
 
 main, 
-p,
-.quiz-form, 
+p, 
 .score-input{
 display: flex;
 flex-direction: column;

@@ -1,28 +1,28 @@
 var questions = [
   {
-    question:"1",
-    answer:"1",
-    options:["1","2","3","4"]
+    question:"Which operator is used to assign a value to a variable",
+    answer:"=",
+    options:["+","===","=","-"]
   },
   {
-    question:"2",
-    answer:"2",
-    options:["1","2","3","4"]
+    question:"What is the default value for function parameters?",
+    answer:"undefined",
+    options:["undefined","string","0","unknown"]
   },
   {
-    question:"3",
-    answer:"1",
-    options:["1","2","3","4"]
+    question:"Using the Day.js Library, what is the correct format for a four-digit year?",
+    answer:"YYYY",
+    options:["Y","Y4","year.four","YYYY"]
   },
   {
-    question:"4",
-    answer:"2",
-    options:["1","2","3","4"]
+    question:"How do you get information from localStorage?",
+    answer:".getItem()",
+    options:[".setItem()",".getInfo()",".getProject()",".getItem()"]
   },
   {
-    question:"5",
-    answer:"1",
-    options:["1","2","3","4"]
+    question:"What does window.confirm() return?",
+    answer:"boolean",
+    options:["string","alert","boolean","target"]
   }
 ]
 var startButton = document.querySelector(".start-button");
