@@ -49,6 +49,8 @@ startButton.addEventListener("click", startQuiz);
 submitButton.addEventListener("click", submitScore);
 quizForm.addEventListener("change", checkAnswer);
 
+/*Starts game on click and clears out previous displays
+Also implements question display function and timer*/
 function startQuiz () {
   startButton.style.display = 'none';
   scoreDisplay.style.display  = 'none';
@@ -63,7 +65,8 @@ function startQuiz () {
   nextQuestion();
   startTimer();
 };
-
+/*Simple timer function that accounts for different time text displays
+and negative number situations*/
 function startTimer() {
   timerInterval = setInterval(() => {
     if (countdown <= 0) {
@@ -77,7 +80,8 @@ function startTimer() {
     }
   }, 1000);
 };
-
+/*For loop displays options in each label of the quiz-form
+Additionally changes input value of radio buttons*/
 function nextQuestion() {
   questionNumber.textContent = `Question #${questionIndex + 1}`;
   questionElement.textContent = questions[questionIndex].question;
@@ -87,7 +91,9 @@ function nextQuestion() {
     //value needs to change with options for each question
   }
 };
-
+/*check answer adds points based on number of questions out of 100 points
+so that the questions array can grow in number if the developer chooses too
+add more*/
 function checkAnswer(event){
 if(event.target.value === questions[questionIndex].answer) {
   score += 100/questions.length
@@ -96,15 +102,19 @@ if(event.target.value === questions[questionIndex].answer) {
   timerElement.innerText = `Time left: ${countdown} seconds`;
 }
 document.querySelector('input[type="radio"]:checked').checked = false;
-//found this line of code from the internet to clear the property checked
+//^found this line of code from the internet to clear the "checked" property 
 questionIndex++;
+/*continues logic until question Index reaches questions length
+then implements endQuiz*/
 if(questionIndex < questions.length){
   nextQuestion();
 } else {
   endQuiz();
 }
-
 };
+
+/*stops timerInterval function and brings up second form for the user
+to input there name along with their displayed score*/
 function endQuiz() {
   clearInterval(timerInterval);
   quizContainer.style.display = 'none';
@@ -114,7 +124,9 @@ function endQuiz() {
     countdown = 0;
     timerElement.textContent = `Time left: ${countdown} seconds`;
   }
-
+/*I decided that if the user doesn't get any questions correct they can't 
+get on the score board. The start button changes to restart and both score
+and questionIndex are reset*/
   if(score <= 0) {
     resultContainer.style.display = 'none';
     questionIndex = 0;
@@ -127,7 +139,9 @@ function endQuiz() {
     submitButton.style.display = 'block';
   }
 };
-
+/*This was most challenging function for me. The first if statement checks
+if there is any scores in local storage already. Otherwise recorded scores 
+starts as an empty array*/
 function submitScore(event) {
   event.preventDefault();
   var recordedScore;
@@ -136,7 +150,8 @@ function submitScore(event) {
   } else {
     recordedScore = []
   }
-  console.log(recordedScore);
+/*The user must put in a name, otherwise the placeholder text warns them
+and the submit button won't move the user forward*/
   if(!userNameInput.value){
    userNameInput.setAttribute("placeholder", "Must name before you submit")
    return;
@@ -145,12 +160,15 @@ function submitScore(event) {
     name: userNameInput.value,
     result: score
     })
-    console.log(recordedScore);
+/*Sorts the scores in descending order and cuts off at 15 scores. Then it sets
+recorded scores as a string and sends to local storage*/
     recordedScore.sort( (a,b) => b.result - a.result)
     recordedScore = recordedScore.slice(0,15)
     localStorage.setItem("recordedScore", JSON.stringify(recordedScore))
   };
-
+/*Score display statement disappears and scoreboard retrieves stored scores
+from local storage. For loop then creates list items and appends it to the ul
+in the HTML document*/
   scoreDisplay.style.display = 'none';
   scoreBoardElement.style.display = 'block';
   for(let i = 0; i < recordedScore.length; i++) {

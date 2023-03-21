@@ -7,7 +7,7 @@ I WANT to take a timed quiz on JavaScript fundamentals that stores high scores<b
 SO THAT I can gauge my progress compared to my peers<br>
 
 ## Features
-I built this project from the ground up and implemented more event listners and utilized local storage for the first time. The quiz game runs after the user clicks on the start button and goes through a series of questions with change events. If the user answers incorrectly, the timer will deduct 10 seconds. After the last question, the quiz ends and if the user has at least one correct answer, they will be allowed to record their score on the score board.
+I built this project from the ground up, implemented more event listeners than my password generator and utilized local storage for the first time. The quiz game runs after the user clicks on the start button and goes through a series of questions with change events. If the user answers incorrectly, the timer will deduct 10 seconds. After the last question, the quiz ends and if the user has at least one correct answer, they will be allowed to record their score on the score board.
 
 ## Mock-up
 
