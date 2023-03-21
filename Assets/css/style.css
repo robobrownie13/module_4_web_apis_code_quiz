@@ -1,8 +1,10 @@
-* {
+@import url('https://fonts.cdnfonts.com/css/games');
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2?styles=44819');
+
+*{
     margin: 0;
     padding: 0;
-    color:#cfc5e2;
-    font-family: din-round,sans-serif;
+    color:#cfc5e2; 
 }
 
 
@@ -15,6 +17,7 @@ body {
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
+    font-family: 'Games', sans-serif;
 }
 
 .page-background {
@@ -33,17 +36,23 @@ body {
 }
 
 header {
-    width: 100vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    color:#cfc5e2;
-    background-color: #090117;
-    z-index: 3;
+  padding: 0 10px 0 10px ;
+  margin-top: 20px;                                      
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  color:#cfc5e2;
+  background-color: #090117;
+  z-index: 3;
+}
+
+h1 {
+  font-size: 3rem;
 }
 
 .timer{
-    padding-bottom: 2px;
+  padding-bottom: 2px;
 }
 
 main, 
@@ -54,6 +63,7 @@ flex-direction: column;
 justify-content: center;
 align-items: space-around;
 text-align: center;
+font-family: 'Proxima Nova', sans-serif;
 }
 
 button {
@@ -123,12 +133,13 @@ button:hover:not(:disabled) {
 
 fieldset{
   border: 5px solid #cfc5e2;
+  margin: 10px;
   border-radius: 5px;
   background-color: rgba(242, 74, 233, 0.2);
 }
 
 .quiz-question {
-  font-size: .85rem;
+  font-size: 1.5rem;
   padding: 10px;
 }
 
