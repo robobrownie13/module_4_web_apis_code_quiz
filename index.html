@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mod 4: Quiz Game</title>
-    <link rel="stylesheet" type="text/css" href="./Assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./Assets/style.css">
 </head>
 <body>
     <header>
@@ -19,29 +19,21 @@
                 <fieldset>
                     <legend class="question-number"></legend>
                     <p class="quiz-question"></p>
-                    <label class="quiz-answer-label" for="option1">
                     <input type="radio" id="option1" class = "answer-input" value="option1">
-                    <span class="quiz-answer"></span>
-                    </label>
-                    <label class="quiz-answer-label" for="option2">
-                    <input type="radio" id="option2" class = "answer-input" value="option2">
-                    <span class="quiz-answer"></span>
-                   </label>
-                    <label class="quiz-answer-label" for="option3">
-                    <input type="radio" id="option3" class = "answer-input" value="option3">
-                    <span class="quiz-answer"></span>
-                    </label>
-                   <label class="quiz-answer-label" for="option4">
-                    <input type="radio" id="option4" class = "answer-input" value="option4">
-                    <span class="quiz-answer"></span>
-                   </label>
+                    <label class="quiz-answer" for="option1"></label>
+                    <input type="radio" id="option2" class = "answer-input" value="option1">
+                    <label class="quiz-answer" for="option2"></label>
+                    <input type="radio" id="option3" class = "answer-input" value="option1">
+                    <label class="quiz-answer" for="option3"></label>
+                    <input type="radio" id="option4" class = "answer-input" value="option1">
+                    <label class="quiz-answer" for="option4"></label>
                 </fieldset>
             </form>
         </div>
-        <p class="score-display hide"></p>
+        <h2 class="score-display hide"></h2>
         <div class="result-container hide">
             <form class="score-input">
-                <input type="text" id="player-name" placeholder="Enter Your Name">
+                <input type="text" id="player-name" class="hide" placeholder="Enter Your Name">
                 <button type="submit" class="submit-score hide">Submit</button>
             </form>
         </div>

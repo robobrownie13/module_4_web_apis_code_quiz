@@ -54,6 +54,7 @@ Also implements question display function and timer*/
 function startQuiz () {
   startButton.style.display = 'none';
   scoreDisplay.style.display  = 'none';
+  userNameInput.style.display = 'none';
   scoreBoardElement.style.display = 'none';
   while(scoreList.firstChild) {
     scoreList.removeChild(scoreList.firstChild);
@@ -153,7 +154,7 @@ function submitScore(event) {
 /*The user must put in a name, otherwise the placeholder text warns them
 and the submit button won't move the user forward*/
   if(!userNameInput.value){
-   userNameInput.setAttribute("placeholder", "Must name before you submit")
+   userNameInput.setAttribute("placeholder", "Must enter name before you submit")
    return;
   } else{
     recordedScore.push({

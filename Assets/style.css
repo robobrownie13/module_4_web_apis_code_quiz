@@ -1,7 +1,8 @@
 @import url('https://fonts.cdnfonts.com/css/games');
 @import url('https://fonts.cdnfonts.com/css/proxima-nova-2?styles=44819');
 
-*{
+
+* {
     margin: 0;
     padding: 0;
     color:#cfc5e2; 
@@ -56,18 +57,19 @@ h1 {
 }
 
 main, 
-p, 
-.score-input{
+p {
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: space-around;
-text-align: center;
 font-family: 'Proxima Nova', sans-serif;
 }
 
+p { 
+text-align: center;
+}
 button {
-  width: 150px;
+  width: 300px;
   appearance: button;
   background-color: #0c0c0c;
   border: solid transparent;
@@ -76,7 +78,7 @@ button {
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: .8px;
   line-height: 20px;
@@ -93,6 +95,10 @@ button {
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+button:active{
+  border-width: 3px;
 }
 
 button:after {
@@ -143,55 +149,86 @@ fieldset{
   padding: 10px;
 }
 
-.quiz-answer-label {
-	display: flex;
-	cursor: pointer;
-	font-weight: 500;
-	position: relative;
-	overflow: hidden;
-	margin-bottom: 0.375em;
-  padding: 5px;
+input[type="radio"]
+{
+  display: none;
 }
-	/* Accessible outline */
-	/* Remove comment to use */ 
 
-.answer-input {
-		position: absolute;
-		left: -9999px;
-  }
-.answer-input:checked, span {
-			background-color: mix(#fff,  #00005c, 84%);
-  }
-.answer-input:before {
-				box-shadow: inset 0 0 0 0.4375em  #00005c;
-			} 
-	
-.quiz-answer {
-  display: flex;
-  align-items: center;
-  padding: 0.375em 0.75em 0.375em 0.375em;
-  border-radius: 99em; 
-  transition: 0.25s ease;
+input[type="radio"]+label {
+  appearance: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  padding-top: 3px;
+  padding-left: 50px;
 }
-    
-.quiz-answer:before {
-  display: flex;
-  flex-shrink: 0;
-  content: "";
-  background-color: #fff;
-  width: 1.5em;
-  height: 1.5em;
-  border-radius: 50%;
-  margin-right: 0.375em;
-  transition: 0.25s ease;
-  box-shadow: inset 0 0 0 0.125em #00005c;
-} 
+
+input[type="radio"]+label:before {
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0);
+  border-radius: 100% 100% 100% 100%;
+  content: " ";
+  height: 7px;
+  left: 12px;
+  position: absolute;
+  top: 6px;
+  width: 7px;
+}
+
+input[type="radio"]+label:hover:before {
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
+}
+
+input[type="radio"]:checked+label:before {
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 1);
+}
 
 
-.player-name {
-  border: white solid 5px;
+input[type="radio"]+label:after {
+  border: 3px solid #cfc5e2;
+  border-radius: 100% 100% 100% 100%;
+  content: " ";
+  height: 15px;
+  left: 5px;
+  position: absolute;
+  top: -1px;
+  width: 15px;
+}
+
+input[type="radio"]:checked+label:after {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+
+.score-display,
+#score-board-title{
+  font-family: 'Games', sans-serif;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+input[type=text]{
+  line-height: 1.4;
+  width: 325px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #330a7a;
+  background-color: #ffefff;
+  border: #cfc5e2 solid 5px;
   border-radius: 2px;
+  margin-bottom: 5px;
 }
+
+::placeholder {
+  color: #8f19cf;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.submit-score {
+  margin-top: 10px;
+  margin-left: 17px;
+}
+
 
 ul {
   counter-reset: index;  
